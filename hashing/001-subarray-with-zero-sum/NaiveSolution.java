@@ -1,7 +1,7 @@
 public class NaiveSolution {
     // Bruteforce solution
     // Time Complexity: O(n^2)
-    // Space Complexity: O(1)
+    // Auxiliary Space: O(1)
     public static boolean isZeroSubArray(int[] arr, int n) {
         for (int i = 0; i < n; i++) {
             int currentSum = 0;
