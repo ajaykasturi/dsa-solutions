@@ -5,9 +5,9 @@ class Queue {
 
     Queue(int capacity) {
         this.capacity = capacity;
-        arr = new Integer[capacity];
-        size = 0;
-        front = 0;
+        arr = new Integer[capacity]; // backing array, fixed size
+        size = 0; // number of elements in the queue
+        front = 0; // index of the front element
 
     }
 
@@ -37,22 +37,24 @@ class Queue {
         return arr[rear];
     }
 
+    // Time: O(1)
     boolean enque(int x) {
         if (isFull())
-            return false;
+            return false; // overflow signal, caller decides
         int rear = getRearIndex();
-        rear = (rear + 1) % capacity;
+        rear = (rear + 1) % capacity; // move to next slot, wrap if needed
         arr[rear] = x;
         size++;
         return true;
     }
 
+    // Time: O(1)
     Integer deque() {
         if (isEmpty())
             return null;
         Integer res = arr[front];
-        arr[front] = null; // clear stale reference
-        front = (front + 1) % capacity;
+        arr[front] = null; // clear stale reference, avoid memory leak
+        front = (front + 1) % capacity; // advance front, wrap if needed
         size--;
         return res;
     }
