@@ -20,7 +20,6 @@ public class Solution {
             head.prev = null;
             return head;
         }
-
     }
 
     public static void main(String[] args) {
