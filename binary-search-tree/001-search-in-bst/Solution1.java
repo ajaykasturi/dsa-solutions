@@ -12,6 +12,9 @@ class Node {
 }
 
 public class Solution1 {
+    // recursive search in BST
+    // Time: O(h)
+    // Aux. space: O(h)
     public static boolean search(Node root, int key) {
         if (root == null)
             return false;

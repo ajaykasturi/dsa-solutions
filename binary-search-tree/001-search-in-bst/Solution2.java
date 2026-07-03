@@ -12,6 +12,9 @@ class Node {
 }
 
 public class Solution2 {
+    // iterative search in BST
+    // Time: O(h); h=height of BST
+    // Aux. space: O(1)
     public static boolean search(Node root, int key) {
         while (root != null) {
             if (key == root.key)
