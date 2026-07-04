@@ -11,27 +11,28 @@ class Node {
     }
 }
 
-public class Solution2 {
+public class Solution1 {
     public static Node floor(Node root, int x) {
-        Node res = null;
-        while (root != null) {
-            // Exact match — this is the floor
-            if (root.key == x) {
-                return root;
-            }
-            // If root's key is greater than the given key,
-            // floor must be in the left subtree (root itself is too big)
-            else if (x < root.key) {
-                root = root.left;
-            }
-            // root.key < key: root is a candidate for floor,
-            // but there might be an even closer (larger) value in the right subtree
-            else {
-                res = root;
-                root = root.right;
-            }
+        // Base case: empty tree — no floor exists here
+        if (root == null) {
+            return null;
         }
-        return res;
+        // Exact match — this is the floor
+        if (root.key == x) {
+            return root;
+        }
+        // If root's key is greater than the given key,
+        // floor must be in the left subtree (root itself is too big)
+        else if (x < root.key) {
+            return floor(root.left, x);
+        }
+        // root.key < key: root is a candidate for floor,
+        // but there might be an even closer (larger) value in the right subtree
+        Node rightFloor = floor(root.right, x);
+
+        // If right subtree has a valid floor, use it; otherwise root is the best we've
+        // got
+        return (rightFloor != null) ? rightFloor : root;
     }
 
     public static void main(String[] args) {
