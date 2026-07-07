@@ -5,6 +5,7 @@ public class Solution {
     // Aux. Space: O(1)
     public static void selectionSort(int[] arr) {
         int n = arr.length;
+        System.out.println("Initial array: " + Arrays.toString(arr));
 
         for (int i = 0; i < n - 1; i++) {
 
@@ -21,6 +22,8 @@ public class Solution {
             if (i != minIndex) {
                 swap(arr, i, minIndex);
             }
+            System.out.println(
+                    "Pass " + (i + 1) + " (placed " + arr[i] + " at index " + i + "): " + Arrays.toString(arr));
         }
     }
 
@@ -35,6 +38,5 @@ public class Solution {
 
         selectionSort(arr);
 
-        System.out.println(Arrays.toString(arr));
     }
 }

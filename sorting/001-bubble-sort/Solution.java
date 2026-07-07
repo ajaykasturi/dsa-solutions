@@ -6,6 +6,7 @@ public class Solution {
     // Aux. Space: O(1)
     public static void bubbleSort(int[] arr) {
         int n = arr.length;
+        System.out.println("Initial array: " + Arrays.toString(arr));
 
         for (int i = 0; i < n - 1; i++) {
             boolean swapped = false;
@@ -15,10 +16,13 @@ public class Solution {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
                     swapped = true;
+                    System.out.println("  Swapped indices " + j + " and " + (j + 1) + ": " + Arrays.toString(arr));
                 }
             }
+            System.out.println("Pass " + (i + 1) + ": " + Arrays.toString(arr));
             // If no swaps happened, array is already sorted — so, stop early
             if (!swapped) {
+                System.out.println("No swaps in this pass — array is sorted. Stopping early.");
                 break;
             }
         }
@@ -34,7 +38,5 @@ public class Solution {
         int arr[] = { 9, 4, 7, 1, 2, 6, 5 };
 
         bubbleSort(arr);
-
-        System.out.println(Arrays.toString(arr));
     }
 }
